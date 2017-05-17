@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Search from './Search';
+import MovieTable from './MovieTable';
 import './App.css';
 
 class MovieApp extends Component {
   constructor() {
     super();
-
     this.state = {
       loading: true,
       movies: []
@@ -53,18 +53,10 @@ class MovieApp extends Component {
         <div>
           <Search search={this.search} />
         </div>
-        {this.state.loading ? <div>Loading...</div> : null}
-        <table>
-          <tbody>
-            {this.state.movies.map((movie, i) => <tr key={i}>
-              <td><img src={movie.Poster} alt="Poster" /></td>
-              <td>{movie.Title}</td>
-              <td>{movie.Year}</td>
-              <td>{movie.Actors}</td>
-              <td>{movie.Plot}</td>
-            </tr>)}
-          </tbody>
-        </table>
+        <MovieTable
+          loading={this.state.loading}
+          movies={this.state.movies}
+        />
       </div>
     );
   }
