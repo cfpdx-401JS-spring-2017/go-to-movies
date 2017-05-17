@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Search from './Search';
 import './App.css';
 
 class MovieApp extends Component {
@@ -10,6 +10,8 @@ class MovieApp extends Component {
       loading: true,
       movies: []
     };
+
+    this.search = this.search.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +30,6 @@ class MovieApp extends Component {
         const promises = movies.map(movie => {
           return fetch(`http://www.omdbapi.com/?t=${encodeURI(movie.Title)}&plot=short`)
             .then(response => {
-              console.log('Response: ', response);
               return response.json();
             })
         })
@@ -46,29 +47,23 @@ class MovieApp extends Component {
     return (
       <div>
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h2>The Ripe Banana Movie Database</h2>
         </div>
         <h2>Search your favorite movies</h2>
         <div>
-          <form onSubmit={event => {
-            event.preventDefault();
-            this.search(event.target.elements.search.value);
-
-          }}>
-            <label>Title: <input name="search" /></label>
-            <button type="submit">Search</button>
-          </form>
+          <Search search={this.search} />
         </div>
         {this.state.loading ? <div>Loading...</div> : null}
         <table>
-          {this.state.movies.map((movie, i) => <tr key={i}>
-            <td><img src={movie.Poster} alt="Poster" /></td>
-            <td>{movie.Title}</td>
-            <td>{movie.Year}</td>
-            <td>{movie.Actors}</td>
-            <td>{movie.Plot}</td>
-          </tr>)}
+          <tbody>
+            {this.state.movies.map((movie, i) => <tr key={i}>
+              <td><img src={movie.Poster} alt="Poster" /></td>
+              <td>{movie.Title}</td>
+              <td>{movie.Year}</td>
+              <td>{movie.Actors}</td>
+              <td>{movie.Plot}</td>
+            </tr>)}
+          </tbody>
         </table>
       </div>
     );
