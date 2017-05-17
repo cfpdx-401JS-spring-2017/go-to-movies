@@ -61,15 +61,15 @@ class MovieApp extends Component {
           </form>
         </div>
         {this.state.loading ? <div>Loading...</div> : null}
-        <ul>
-          {this.state.movies.map((movie, i) => <li key={i}>
-            <img src={movie.Poster} alt="Poster" />
-            {movie.Title}
-            {movie.Year}
-            {movie.Actors}
-            {movie.Plot}
-          </li>)}
-        </ul>
+        <table>
+          {this.state.movies.map((movie, i) => <tr key={i}>
+            <td><img src={movie.Poster} alt="Poster" /></td>
+            <td>{movie.Title}</td>
+            <td>{movie.Year}</td>
+            <td>{movie.Actors}</td>
+            <td>{movie.Plot}</td>
+          </tr>)}
+        </table>
       </div>
     );
   }
