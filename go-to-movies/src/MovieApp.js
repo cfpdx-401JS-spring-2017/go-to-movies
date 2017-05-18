@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
+import SearchForm from './SearchForm';
 
 
 class MovieApp extends Component {
@@ -10,6 +11,9 @@ class MovieApp extends Component {
       loading: true,
       movies: []
     };
+
+    this.search = this.search.bind(this);
+
   }
 
   componentDidMount() {
@@ -34,6 +38,11 @@ class MovieApp extends Component {
     return (
       <div>
         <h2>Mofo's Movies</h2>
+        <SearchForm search={this.search}/> 
+        <MovieList 
+          loading={this.state.loading} 
+          movies={this.state.movies}
+        />
       </div>
     );
   }
