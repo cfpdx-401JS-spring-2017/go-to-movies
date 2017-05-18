@@ -10,3 +10,20 @@ body {
 h2 {
   font-family: 'Montserrat Subrayada'
 }
+
+table {
+  margin: 70px;
+  padding: 5px;
+}
+
+td {
+  padding: 10px;
+  border: lightblue solid 1px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
