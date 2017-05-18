@@ -1,0 +1,28 @@
+#App {
+  background-color: #eee;
+}
+
+.App-header {
+  text-align: center;
+  background-color: #222;
+  height: 40px;
+  padding: 20px;
+  margin-top: 0;
+  color: white;
+}
+
+ul {
+  text-align: center;
+  margin: 0 auto;
+  width: 20%;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0.5em 0;
+}

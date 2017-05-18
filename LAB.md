@@ -33,7 +33,7 @@ You are free to query the data for a genre, actor, whatever that you want.
 
 * Renders movies *1pts*
 * Correct/idiomatic jsx and React *3pts*
-* Component (de)composition *2pts*
+* Component (de)composition *3pts*
 * HTML/CSS *1pts*
 * Project structure/org *1pts*
 * Curiosity/creativity *1pts*
