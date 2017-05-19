@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MovieApp from './Movie-app';
+import MovieApp from './MovieApp';
 import './index.css';
 
 ReactDOM.render(

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MovieList from './MovieList';
+import SearchForm from './SearchForm';
 
 
 class MovieApp extends Component {
@@ -9,6 +11,9 @@ class MovieApp extends Component {
       loading: true,
       movies: []
     };
+
+    this.search = this.search.bind(this);
+
   }
 
   componentDidMount() {
@@ -33,23 +38,11 @@ class MovieApp extends Component {
     return (
       <div>
         <h2>Mofo's Movies</h2>
-        <div>
-          <form onSubmit={event => {
-            event.preventDefault();
-            this.search(event.target.elements.search.value);
-          }}>
-            <label>Search: <input name="search" /></label>
-            <button type="submit">Search</button>
-          </form>
-        </div>
-        {this.state.loading ? <div>Loading...</div> : null}
-        <ul>
-          {this.state.movies.map((movie, i) => <li key={i}>
-            <img src={movie.Poster} /> <br/>
-            {movie.Year} <br/>
-            {movie.Title}
-          </li>)}
-        </ul>
+        <SearchForm search={this.search}/> 
+        <MovieList 
+          loading={this.state.loading} 
+          movies={this.state.movies}
+        />
       </div>
     );
   }
